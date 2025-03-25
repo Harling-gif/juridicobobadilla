@@ -333,7 +333,7 @@
 .footer-bottom {
     margin-top: 20px;
     font-size: 14px;
-    color: #4A4A4A; /* Gris oscuro: Elegancia y sofisticación */
+    color: #d6d6d6; /* Gris oscuro: Elegancia y sofisticación */
     border-top: 1px solid #C4A76F;
     width: 100%;
     padding-top: 10px;
@@ -473,3 +473,5 @@
         font-size: 12px;
     }
 }
+
+
