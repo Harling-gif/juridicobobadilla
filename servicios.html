@@ -7,12 +7,29 @@
     <title>Jurídico Bobadilla Garcia</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .contenedor{
+        .contenedor {
             display: flex;
             justify-content: center;
+            align-items: center;
             height: 100vh;
-
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
         }
+        
+        .contrucion {
+            max-width: 100%; /* La imagen no será más grande que la pantalla */
+            height: auto; /* Mantiene la proporción */
+        }
+        
+        /* Ajustes para pantallas pequeñas */
+        @media (max-width: 768px) {
+            .contenedor {
+                height: auto;
+                padding: 10px;
+            }
+        }
+        
     </style>
 </head>
 
