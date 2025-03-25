@@ -1,78 +1,475 @@
-
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ---------- NAVBAR ---------- */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 60px;
+    background: #fdfdfd;  /* Blanco */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.075);  /* Sombra alrededor del contorno */
+    opacity: 0;  /* Inicialmente invisible para la animación */
+    animation: slideDownNavbar 1s ease-out forwards;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f9f9f9;
+.company-logo-icon {
+    width: 50px;
+    height: auto;
+    object-fit: contain;
+    transform: scale(1.5);
+    transform-origin: center;
 }
 
-
-header {
-    background-color: #31386F;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
+.logo img {
+    opacity: 0;
+    animation: fadeInLogo 1.5s ease-in-out forwards;
 }
 
-header h1 {
-    font-size: 2em;
+/* Menú de navegación */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    opacity: 1;
+    animation: slideInNav 1s ease-in-out forwards;
 }
 
-
-section {
-    padding: 20px;
-    margin: 20px 0;
+.nav-links li {
+    display: inline;
 }
 
-#intro, #services, #contact {
-    max-width: 800px;
-    margin: auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.nav-links a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #2C3E50;  /* Azul Marino */
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
 }
 
-h2 {
-    color: #31386F;
-    margin-bottom: 10px;
+.nav-links a:hover {
+    color: #C4A76F;  /* Dorado */
 }
 
-p {
-    margin-bottom: 15px;
+/* Botones */
+.buttons {
+    display: flex;
+    gap: 15px;
+    opacity: 0;
+    animation: slideInButtons 1.5s ease-in-out forwards;
 }
-
 
 .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    color: #fff;
-    background-color: #31386F;
     text-decoration: none;
+    padding: 10px 20px;
+    font-size: 16px;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease-in-out;
 }
 
-.btn:hover {
-    background-color: #575ea4;
+.btn-primary {
+    background-color: #2C3E50;  /* Azul Marino */
+    color: #FFFFFF;  /* Blanco */
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #4A4A4A;  /* Gris Oscuro */
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #2C3E50;  /* Azul Marino */
+    border: 2px solid #2C3E50;  /* Azul Marino */
+}
+
+.btn-secondary:hover {
+    background-color: #2C3E50;  /* Azul Marino */
+    color: #FFFFFF;  /* Blanco */
+}
+
+/* ---------- HERO SECTION ---------- */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 60px;
+    background-color: #ededed;  /* Blanco */
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+.placeholder-image-icon {
+    width: 50%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    opacity: 0;
+    animation: fadeInImage 1s ease-in-out forwards;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #2C3E50;  /* Azul Marino */
+    margin-bottom: 20px;
+    animation: slideUp 1s ease-out;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #4A4A4A;  /* Gris Oscuro */
+    line-height: 1.6;
+    margin-bottom: 20px;
+    animation: slideUp 1.2s ease-out;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    opacity: 0;
+    animation: fadeInButtons 1.5s ease-in-out forwards;
+}
+
+.hero-buttons .btn-primary {
+    background-color: #C4A76F;  /* Dorado */
+    color: #FFFFFF;  /* Blanco */
+}
+
+.hero-buttons .btn-secondary {
+    background-color: transparent;
+    color: #800020;  /* Borgoña */
+    border: 2px solid #800020;  /* Borgoña */
+}
+
+.hero-buttons .btn-primary:hover {
+    background-color: #800020;  /* Borgoña */
+}
+
+.hero-buttons .btn-secondary:hover {
+    background-color: #800020;  /* Borgoña */
+    color: #FFFFFF;  /* Blanco */
 }
 
 
-footer {
-    background-color: #31386F;
-    color: #fff;
+/* ---------- ANIMACIONES ---------- */
+
+
+@keyframes slideDownNavbar {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);  /* Empuja el navbar hacia arriba */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);  /* Vuelve a su posición original */
+    }
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInNav {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInButtons {
+    0% {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInLogo {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInImage {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInButtons {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+.servicios {
     text-align: center;
-    padding: 10px 0;
+    padding: 1px;
+    background: #f8f8f8;
 }
 
-footer p {
-    font-size: 0.9em;
+.servicio-lista {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
+.servicio {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 250px;
+}
+
+
+
+.footer {
+    background: #2C3E50; /* Azul Marino: Confianza y estabilidad */
+    color: #FFFFFF; /* Blanco para contraste y claridad */
+    text-align: center;
+    padding: 40px 20px;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    margin: 10px;
+    text-align: left;
+}
+
+.footer-section h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #C4A76F; /* Dorado: Prestigio y éxito */
+}
+
+.footer-section p,
+.footer-section a {
+    font-size: 16px;
+    color: #FFFFFF; /* Blanco para mejor legibilidad */
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-section a:hover {
+    color: #C4A76F; /* Efecto dorado al pasar el mouse */
+}
+
+.footer-social {
+    margin-top: 20px;
+}
+
+.footer-social a {
+    margin: 0 10px;
+    color: #FFFFFF;
+    font-size: 24px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: #C4A76F; /* Efecto dorado en iconos sociales */
+    transform: scale(1.2);
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #4A4A4A; /* Gris oscuro: Elegancia y sofisticación */
+    border-top: 1px solid #C4A76F;
+    width: 100%;
+    padding-top: 10px;
+}
+
+
+.icono-tigo {
+    width: 20px;  /* Tamaño del icono */
+    height: 20px;
+    vertical-align: middle;  /* Alineado con el texto */
+    margin-right: 8px;  /* Espacio entre el icono y el número */
+}
+
+
+
+
+/* ----------------- RESPONSIVE DESIGN ----------------- */
+
+/* ✅ Para pantallas de hasta 1024px (Tablets y laptops pequeñas) */
+@media screen and (max-width: 1024px) {
+    .navbar {
+        padding: 0px 30px;
+    }
+
+    .nav-links {
+        gap: 30px;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .placeholder-image-icon {
+        width: 80%;
+    }
+
+    .hero-content {
+        max-width: 80%;
+    }
+}
+
+/* ✅ Para pantallas de hasta 768px (Tablets y móviles grandes) */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .nav-links {
+        display: none; /* Ocultamos el menú normal */
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .navbar .menu-toggle {
+        display: block; /* Botón de menú hamburguesa */
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+
+    .hero-title {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ✅ Para pantallas de hasta 480px (Móviles pequeños) */
+@media screen and (max-width: 480px) {
+    .navbar {
+        padding: 10px;
+    }
+
+    .company-logo-icon {
+        width: 40px;
+        transform: scale(1.2);
+    }
+
+    .hero {
+        padding: 30px 10px;
+    }
+
+    .hero-title {
+        font-size: 24px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .hero-buttons .btn {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    .servicio-lista {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .servicio {
+        width: 90%;
+    }
+
+    .footer {
+        padding: 20px;
+    }
+
+    .footer-bottom {
+        font-size: 12px;
+    }
+}
